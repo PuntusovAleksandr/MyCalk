@@ -124,15 +124,17 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 display.setText(display.getText() + "9");
                 break;
             case R.id.bPluc:
-                firstValue = Integer.valueOf(String.valueOf(display.getText()));
-                display.setText("");
                 operation = "+";
-            case R.id.bMinus:
-                firstValue = Integer.valueOf(String.valueOf(display.getText()));
+                firstValue = Integer.parseInt(display.getText().toString());
                 display.setText("");
+                break;
+            case R.id.bMinus:
                 operation = "-";
+                firstValue = Integer.parseInt(display.getText().toString());
+                display.setText("");
+                break;
             case R.id.bResult:
-                int secondValue = Integer.valueOf(String.valueOf(display.getText()));
+                int secondValue = Integer.parseInt(display.getText().toString());
                 if("+".equals(operation)){
                     display.setText((firstValue+secondValue)+"");
                 }
@@ -142,6 +144,7 @@ public class MainActivity extends ActionBarActivity implements View.OnClickListe
                 firstValue = 0;
                 operation = "+";
 
+                break;
         }
     }
 }
